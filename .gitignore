@@ -1,0 +1,8 @@
+node_modules/
+dist/
+reports/*
+!reports/.gitkeep
+screenshots/*
+!screenshots/.gitkeep
+config/.env.*
+!config/.env.example

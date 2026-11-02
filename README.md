@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Playwright + TypeScript + Cucumber BDD Framework
 
 This project runs Cucumber scenarios against SauceDemo using Playwright as the browser automation library. Cucumber—not the Playwright Test runner—discovers and executes the scenarios.
@@ -160,3 +161,6 @@ The `test-runner/runner.ts` launcher invokes the Cucumber CLI programmatically a
 ```bash
 npm run typecheck
 ```
+=======
+# New_BDD_Playwright_Framework
+>>>>>>> 4f16997fc49598066124f5dd169f03f97ba97b78

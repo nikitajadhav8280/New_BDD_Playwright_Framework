@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Prepare QA environment
+        run: cp config/.env.example config/.env.qa
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 

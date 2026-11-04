@@ -30,7 +30,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Generate BDD tests
-        run: npx bddgen
+        run: TEST_ENV=qa npx bddgen
 
       - name: Run BDD tests
         run: ENV=qa npx playwright test

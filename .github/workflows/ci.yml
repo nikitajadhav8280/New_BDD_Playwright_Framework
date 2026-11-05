@@ -37,13 +37,6 @@ jobs:
         run: npm run test:bdd:html
         env:
           TEST_ENV: qa
-          BROWSER: chromium
-          HEADLESS: 'true'
-          BASE_URL: ${{ secrets.BASE_URL }}
-          APP_USERNAME: ${{ secrets.APP_USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          INVALID_USERNAME: ${{ secrets.INVALID_USERNAME }}
-          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
 
       - name: Upload test results
         if: always()

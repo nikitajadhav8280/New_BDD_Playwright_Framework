@@ -1,3 +1,4 @@
+
 name: BDDPlaywright CI
 
 on:
@@ -30,13 +31,19 @@ jobs:
         run: cp config/.env.example config/.env.qa
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
 
-      - name: Generate BDD tests
-        run: TEST_ENV=qa npx bddgen
-
-      - name: Run BDD tests
-        run: TEST_ENV=qa npx playwright test
+      - name: Run Cucumber BDD tests
+        run: npm run test:bdd:html
+        env:
+          TEST_ENV: qa
+          BROWSER: chromium
+          HEADLESS: 'true'
+          BASE_URL: ${{ secrets.BASE_URL }}
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          INVALID_USERNAME: ${{ secrets.INVALID_USERNAME }}
+          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
 
       - name: Upload test results
         if: always()
@@ -44,9 +51,7 @@ jobs:
         with:
           name: bdd-test-results
           path: |
-            allure-results/
-            allure-report/
-            test-results/
             reports/
+            screenshots/
           if-no-files-found: ignore
           retention-days: 14

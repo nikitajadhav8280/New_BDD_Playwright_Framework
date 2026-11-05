@@ -1,4 +1,3 @@
-// This adapter shares Playwright library settings without using the Playwright Test runner.
 import type { BrowserContextOptions, LaunchOptions } from 'playwright';
 import { config } from './config/config';
 
@@ -7,7 +6,7 @@ export const playwrightConfig: {
   contextOptions: BrowserContextOptions;
 } = {
   launchOptions: {
-    headless: true,
+    headless: config.headless,
   },
   contextOptions: {
     baseURL: config.baseUrl,

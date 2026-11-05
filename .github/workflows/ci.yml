@@ -36,7 +36,7 @@ jobs:
         run: TEST_ENV=qa npx bddgen
 
       - name: Run BDD tests
-        run: ENV=qa npx playwright test
+        run: TEST_ENV=qa npx playwright test
 
       - name: Upload test results
         if: always()
